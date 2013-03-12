@@ -18,10 +18,6 @@ package org.kairosdb.client.builder;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.kairosdb.client.serializer.QueryMetricAggregateSerializer;
-
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.kairosdb.client.util.Preconditions.checkNotNullOrEmpty;
 
@@ -37,9 +33,6 @@ public class QueryMetric
 {
 	private Map<String, String> tags = new LinkedHashMap<String, String>();
 	private String name;
-	
-	@JsonSerialize(using=QueryMetricAggregateSerializer.class)
-	@JsonProperty("aggregators")
 	private String aggregate;
 
 	QueryMetric(String name, String aggregator)
